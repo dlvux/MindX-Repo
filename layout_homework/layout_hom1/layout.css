@@ -31,6 +31,7 @@ button:hover {
     background-color: white;
     color: rgb(0, 190, 171);
     border: 2px solid rgb(0, 190, 171);
+    position: absolute;
 }
 
 .box {
