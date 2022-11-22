@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = prompt('Nhập vào A, B, C hoặc D');
+        let text;
+
+        switch(n) {
+            case 'A':
+                text = 'Học lực giỏi';
+                break;
+            case 'B':
+                text = 'Học lực khá';
+                break;
+            case 'C':
+                text = 'Học lực trung bình';
+                break;
+            case 'D':
+                text = 'Học lực kém';
+                break;
+            default:
+                text = 'Giá trị nhập vào không hợp lệ';
+        }
+
+        alert(text);
+    </script>
+</body>
+</html>
