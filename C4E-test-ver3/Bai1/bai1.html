@@ -5,33 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai 1</title>
-    <link rel="stylesheet" href="bai1.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
-    <h1>Tính tổng các số nguyên tố trong khoảng a và b</h1>
-    <p>Chú ý: Nhập vào 2 số a và b (a &lt; b)</p>
-    <h3>Nhập vào số thứ 1:</h3> 
-    <input id="a" type="text" placeholder="Nhập a">
-    <h3>Nhập vào số thứ 2:</h3>
-    <input id="b" type="text" placeholder="Nhập b"> <br>
-    <button onclick="sum()">Submit</button>
-    <h2></h2>
+    <h2 id="a">Số thứ 1 là: </h2> 
+    <h2 id="b">Số thứ 2 là: </h2>
+    <h2 id="sum">Tổng các số nguyên tố trong khoảng a và b là: </h2>
 
     <script>
-        var a = document.getElementById('a').value;
-        var b = document.getElementById('b').value;
-        
-        function isPrime(a, b) {
-            for(var i = a; i <= b; i++){
-                if(b % i === 0){
-                return false;
+        let a = Number(prompt("Nhập số thứ 1: "));
+        let b = Number(prompt("Nhập số thứ 2 (b > a): "));
+
+        function isPrime(num) {
+            var prime = 1
+            for (let i = 2; i < Math.floor(Math.sqrt(num)) + 1; i++) {
+                if (num % i == 0) {
+                    prime = 0;
+                    break;
                 }
             }
-            return true;
+            return prime ;
         }
 
-        function sum() {
+        function sum(a, b) {
+            var result = 0;
+            for (let j = a; j <= b; j++) {
+                var prime_status = isPrime(j);
+                result += j * prime_status;
+            }
+            return result;
+        }
 
+        if (a >= b || isNaN(a) || isNaN(b)) {
+            alert("Xin hãy reload và nhập lại!");
+        } 
+        else {
+            document.getElementById('a').innerHTML += a;
+            document.getElementById('b').innerHTML += b;
+            document.getElementById('sum').innerHTML += sum(a, b);
         }
     </script>
 </body>
